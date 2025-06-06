@@ -25,12 +25,13 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
                 alert("CEP NÂO ENCONTRADO")
             }
       })
+      //3.3 caso tenha algum erro na pagina
       .catch(error => console.error("Erro Ao encontrar o CEP " ,error ));
 
   })
 
   const Enderecosalvo = document.getElementById("salvar");
-
+      // 4. Torna valores em uma variavel
   Enderecosalvo.addEventListener("click", () => {
       const cep = document.getElementById("cep").value;
       const logradouro = document.getElementById("logradouro").value;
@@ -40,7 +41,7 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
       const regiao = document.getElementById("regiao").value;
       const numero = document.getElementById("numero").value;
   
-      // Salvar os dados no localStorage
+      // 5. Salvar os dados no localStorage
       localStorage.setItem("cep", cep);
       localStorage.setItem("logradouro", logradouro);
       localStorage.setItem("bairro", bairro);
@@ -50,7 +51,7 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
       localStorage.setItem("numero", numero);
   });
   
-  // 5. Recuperar os dados ao carregar a página
+  // 6. Recuperar os dados ao carregar a página
   document.addEventListener('DOMContentLoaded', () => {
       const cepSalvo = localStorage.getItem("cep");
       const logradouroSalvo = localStorage.getItem("logradouro");
@@ -60,7 +61,7 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
       const regiaoSalva = localStorage.getItem("regiao");
       const numeroSalvo = localStorage.getItem("numero");
   
-      // Preencher os campos com os dados salvos, se existirem
+      // 7. Preencher os campos com os dados salvos, se existirem
       if (cepSalvo) {
           document.getElementById("cep").value = cepSalvo;
           document.getElementById("logradouro").value = logradouroSalvo;
